@@ -19,7 +19,24 @@ const FREE_CHANNELS=[
 {name:"CBS News 24/7",group:"International Free-to-Watch · News",url:"",externalUrl:"https://www.cbsnews.com/streaming/",kind:"live",source:"CBS News official free streaming page"},
 {name:"ABC News Australia",group:"International Free-to-Watch · News",url:"",externalUrl:"https://www.abc.net.au/news/newschannel",kind:"live",source:"Australian Broadcasting Corporation official live page"},
 {name:"DW News",group:"International Free-to-Watch · News",url:"",externalUrl:"https://www.youtube.com/@dwnews/live",kind:"live",source:"DW verified official YouTube channel"},
-{name:"France 24 English",group:"International Free-to-Watch · News",url:"",externalUrl:"https://www.youtube.com/@France24_en/live",kind:"live",source:"France 24 verified official YouTube channel"}
+{name:"France 24 English",group:"International Free-to-Watch · News",url:"",externalUrl:"https://www.youtube.com/@France24_en/live",kind:"live",source:"France 24 verified official YouTube channel"},
+{name:"Bloomberg Originals",group:"International · USA",url:"",externalUrl:"https://www.youtube.com/@markets/live",kind:"live",source:"Bloomberg official YouTube live page"},
+{name:"CBC News",group:"International · Canada",url:"",externalUrl:"https://www.youtube.com/@CBCNews/live",kind:"live",source:"CBC official YouTube live page"},
+{name:"Citizen TV Kenya",group:"International · Kenya",url:"",externalUrl:"https://www.youtube.com/@citizentvkenya/live",kind:"live",source:"Citizen TV official YouTube live page"},
+{name:"Global News",group:"International · Canada",url:"",externalUrl:"https://www.youtube.com/@globalnews/live",kind:"live",source:"Global News official YouTube live page"},
+{name:"KBS News",group:"International · South Korea",url:"",externalUrl:"https://www.youtube.com/@newskbs/live",kind:"live",source:"KBS official YouTube live page"},
+{name:"KBS World",group:"International · South Korea",url:"",externalUrl:"https://www.youtube.com/@KBSWorldTV/live",kind:"live",source:"KBS World official YouTube live page"},
+{name:"LiveNOW from FOX",group:"International · USA",url:"",externalUrl:"https://www.youtube.com/@LiveNOWFOX/live",kind:"live",source:"FOX official YouTube live page"},
+{name:"NASA TV",group:"International · USA · Science",url:"",externalUrl:"https://www.youtube.com/@NASA/live",kind:"live",source:"NASA official YouTube live page"},
+{name:"NDTV 24x7",group:"International · India",url:"",externalUrl:"https://www.youtube.com/@NDTV/live",kind:"live",source:"NDTV official YouTube live page"},
+{name:"WION",group:"International · India",url:"",externalUrl:"https://www.youtube.com/@WION/live",kind:"live",source:"WION official YouTube live page"},
+{name:"eNCA",group:"International · South Africa",url:"",externalUrl:"https://www.youtube.com/@eNCA/live",kind:"live",source:"eNCA official YouTube live page"},
+{name:"ABC News Live",group:"International · USA",url:"",externalUrl:"https://abcnews.com/Live",kind:"live",source:"ABC News official live page"},
+{name:"NHK World-Japan",group:"International · Japan",url:"",externalUrl:"https://www3.nhk.or.jp/nhkworld/en/live/",kind:"live",source:"NHK official live page"},
+{name:"CGTN",group:"International · China",url:"",externalUrl:"https://www.cgtn.com/tv",kind:"live",source:"CGTN official live page"},
+{name:"Canal 24 Horas",group:"International · Spain",url:"",externalUrl:"https://www.rtve.es/play/videos/directo/canal-24h/",kind:"live",source:"RTVE official live page"},
+{name:"TV Brasil",group:"International · Brazil",url:"",externalUrl:"https://tvbrasil.ebc.com.br/webtv",kind:"live",source:"TV Brasil official web TV"},
+{name:"UN Web TV",group:"International · United Nations",url:"",externalUrl:"https://webtv.un.org/en/live",kind:"live",source:"United Nations official live page"}
 ];
 const PAGE_LABEL={live:"Live TV",sports:"Sports",movies:"Movies",series:"Series",mylist:"My List"};
 function channelKey(ch){return ch.url||ch.externalUrl||ch.name;}

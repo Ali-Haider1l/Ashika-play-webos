@@ -1,6 +1,6 @@
 {
   "id": "com.ashika.play.webos",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "vendor": "Ashika",
   "type": "web",
   "main": "index.html",

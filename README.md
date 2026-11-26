@@ -2,7 +2,7 @@
 
 A standalone LG webOS streaming and playlist entertainment app with a premium, Toffee-inspired dark interface and warm orange accent styling. Independently branded and developed.
 
-## Version 1.3.4
+## Version 1.3.5
 
 - Refreshed premium streaming UI, responsive navigation and orange accent theme
 - Improved hero presentation and content shelves for Live TV, Sports, Movies, Series and My List
@@ -16,7 +16,8 @@ A standalone LG webOS streaming and playlist entertainment app with a premium, T
 - Local persistence for playlist, favorites and guide
 - Added official international live news channels: Al Jazeera English, Sky News, Euronews, CNA, TRT World, CBS News 24/7, ABC News Australia, DW News and France 24 English
 - Fixed favorites so external-link channels can be saved individually
-- Added 17 more international live TV links across the Americas, Europe, Asia and Africa
+- Added 20 direct HLS channel entries from the Mrgify BDIX playlist, covering Bangladeshi, Indian Bangla, sports, kids, music and international free-TV categories
+- Excluded temporary tokenized entries and Toffee-hosted/premium playlist URLs; stream availability can change and still requires playback testing on the target TV
 - Fixed favorites so external-link channels can be saved individually
 - Updated webOS app metadata and package version
 
@@ -25,7 +26,7 @@ A standalone LG webOS streaming and playlist entertainment app with a premium, T
 ```sh
 npm install -g @webosose/ares-cli
 ares-package .
-ares-install --device ashikatv ./com.ashika.play.webos_1.3.4_all.ipk
+ares-install --device ashikatv ./com.ashika.play.webos_1.3.5_all.ipk
 ares-launch --device ashikatv com.ashika.play.webos
 ```
 

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Ashika Play</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="mark">A</span> ASHIKA <b>PLAY</b></div>
+  <nav id="nav">
+    <button class="nav active" data-page="home">Home</button>
+    <button class="nav" data-page="live">Live TV</button>
+    <button class="nav" data-page="movies">Movies</button>
+    <button class="nav" data-page="series">Series</button>
+    <button class="nav" data-page="sports">Sports</button>
+    <button class="nav" data-page="favorites">My List</button>
+  </nav>
+  <button id="settings" class="gear" aria-label="Settings">⚙</button>
+</header>
+<main>
+  <section class="hero">
+    <div class="eyebrow">YOUR ENTERTAINMENT HUB</div>
+    <h1>Everything you love.<br><span>All in one place.</span></h1>
+    <p>Live television, movies, series and sports on your big screen.</p>
+    <button id="addHero" class="primary">＋ Add playlist</button>
+  </section>
+  <section class="toolbar">
+    <div><div class="eyebrow" id="kicker">START WATCHING</div><h2 id="heading">Explore Ashika Play</h2></div>
+    <input id="search" placeholder="Search channels and titles">
+  </section>
+  <section id="grid" class="grid"></section>
+  <section id="empty" class="empty"><h2>Your screen is ready</h2><p>Add an M3U playlist to import channels and start watching. Use only streams you are authorized to access.</p><button id="addEmpty" class="primary">＋ Add an M3U playlist</button></section>
+</main>
+<div id="settingsModal" class="overlay hidden">
+  <div class="modal">
+    <button class="close" id="closeSettings">✕</button>
+    <div class="eyebrow">PERSONALIZE YOUR APP</div><h2>Settings</h2>
+    <label for="playlist">M3U playlist URL</label>
+    <input id="playlist" placeholder="https://example.com/playlist.m3u">
+    <button id="load" class="primary">Load playlist</button>
+    <p id="status" class="note">The playlist host must allow requests from this TV app (CORS). Some streams may require a provider-supported authentication method.</p>
+    <button id="clear" class="secondary">Clear saved playlist</button>
+  </div>
+</div>
+<div id="player" class="player hidden">
+  <video id="video" controls autoplay playsinline></video>
+  <div class="playerbar"><button id="back" class="secondary">← Back</button><b id="nowPlaying">Now Playing</b></div>
+  <div id="playError" class="error hidden"></div>
+</div>
+<div id="toast" class="toast hidden"></div>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@ const FREE_CHANNELS=[
 {name:"BTV",group:"Bangladesh Free-to-Air",url:"",externalUrl:"https://btvlive.gov.bd/channel/BTV",kind:"live",source:"Bangladesh Television official live portal"},
 {name:"BTV News",group:"Bangladesh Free-to-Air",url:"",externalUrl:"https://btvlive.gov.bd/channel/BTV-News",kind:"live",source:"Bangladesh Television official live portal"},
 {name:"BTV Chattogram",group:"Bangladesh Free-to-Air",url:"",externalUrl:"https://btvlive.gov.bd/channel/BTV-Chattogram",kind:"live",source:"Bangladesh Television official live portal"},
-{name:"Sangsad Television",group:"Bangladesh Free-to-Air",url:"",externalUrl:"https://btvlive.gov.bd/channel/Sangsad-TV",kind:"live",source:"Bangladesh Television official live portal"}
+{name:"Sangsad Television",group:"Bangladesh Free-to-Air",url:"",externalUrl:"https://btvlive.gov.bd/channel/Sangsad-Television",kind:"live",source:"Bangladesh Television official live portal"}
 ];
 const PAGE_LABEL={live:"Live TV",sports:"Sports",movies:"Movies",series:"Series",mylist:"My List"};
 function toast(s){const t=$("toast");t.textContent=s;t.classList.remove("hidden");clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.add("hidden"),2800)}

@@ -1,38 +1,33 @@
 # Ashika Play — LG webOS
 
-A separate LG webOS TV streaming application with a modern, Toffee-inspired entertainment discovery layout. It keeps Ashika branding and does not modify the existing Ashika Live TV / Ashika webOS projects.
+A standalone LG webOS entertainment app with an OTT-style discovery interface. This repository is independent from Ashika Live TV.
 
-## Version 1.1.0
+## Version 1.2.0
+- OTT-style home screen with Live TV, Sports, Movies, Series and My List shelves
+- M3U/M3U8 playlist import by URL or local file
+- M3U metadata parsing: channel name, group, logo and EPG ID
+- Optional XMLTV EPG import with current/next programme display
+- Search, category filtering, channel details and favorites
+- Full-screen playback through the native webOS HTML video stack
+- TV remote keyboard focus and Back/Escape support
+- Local persistence for playlist, favorites and guide
 
-- TV-first 1920×1080 layout with featured hero and horizontal content shelves
-- Home, Live TV, Sports, Drama, Movies, Web Series and My List sections
-- Search, title detail view and favorites saved locally
-- M3U playlist import with channel name and group parsing
-- Full-screen playback using the LG webOS HTML media stack
-- Keyboard / TV remote focus states and Escape / Back handling
-- GitHub Actions workflow to package an installable IPK
-
-## Important content and provider limitations
-
-The interface is inspired by common OTT discovery patterns. It is not the Toffee application and does not contain Toffee's proprietary source code, catalog API, account system, subscription, DRM keys, or licensed streams. Real Toffee catalog playback, sign-in, premium plans and protected live sports require Banglalink/Toffee authorization and supported provider integration. No paid access or DRM is bypassed.
-
-The home shelves currently show sample discovery tiles. Import an authorized M3U playlist to populate actual live streams. Playlist servers must allow CORS requests from the TV application. A stream can still fail if its codec, DRM, authentication, region restriction or delivery format is unsupported by the TV.
-
-## Build in Termux
-
+## Build and install
 ```sh
-cd ~/Ashika-Play-webOS
 npm install -g @webosose/ares-cli
 ares-package .
-```
-
-## Install on LG TV
-
-Use the configured physical TV alias:
-
-```sh
-ares-install --device ashikatv ./com.ashika.play.webos_1.1.0_all.ipk
+ares-install --device ashikatv ./com.ashika.play.webos_1.2.0_all.ipk
 ares-launch --device ashikatv com.ashika.play.webos
 ```
 
-A successful GitHub Actions run also uploads the generated IPK as a workflow artifact.
+GitHub Actions packages an IPK on pushes to main. Download the artifact from the Actions run.
+
+## Provider, rights and playback
+This is an independently branded OTT-style app, not Toffee's official client. It does not use Toffee proprietary source code, private APIs, catalog assets, credentials, paid streams or DRM keys. Official Toffee sign-in, subscription catalog and protected channels require authorization and integration supplied by the provider. No paywall or DRM is bypassed.
+
+Use only playlists and streams you are authorized to access. Playlist and XMLTV servers must allow CORS requests from the TV app. Playback depends on LG webOS firmware, stream protocol, codecs, DRM and provider authentication. The HTML video element cannot guarantee support for every HLS/DASH variant.
+
+## Known next steps
+- Test playlist formats and remote focus on the physical TV.
+- Add provider-approved catalog/API integration if access credentials and documentation are supplied.
+- Validate actual EPG timezone and stream playback against the target TV.

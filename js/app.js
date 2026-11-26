@@ -57,6 +57,10 @@ const FREE_CHANNELS=[
 {name:"PBS Kids",group:"International · Kids",url:"https://2-fss-2.streamhoster.com/pl_140/amlst:200914-1298290/playlist.m3u8",kind:"live",source:"Mrgify BDIX playlist (direct HLS; availability not independently confirmed)"},
 {name:"OAN",group:"International · News",url:"https://a-cdn.klowdtv.com/live1/oan_720p/playlist.m3u8",kind:"live",source:"Mrgify BDIX playlist (direct HLS; availability not independently confirmed)"},
 {name:"DD Sports",group:"International · Sports",url:"https://cdn-6.pishow.tv/live/13/master.m3u8",kind:"live",source:"Mrgify BDIX playlist (direct HLS; availability not independently confirmed)"}
+{"name":"ABP Ananda","group":"India · Bengali News","url":"","externalUrl":"https://bengali.abplive.com/live-tv","kind":"live","source":"ABP Network official live TV page"},
+{"name":"ABP Majha","group":"India · Marathi News","url":"","externalUrl":"https://bengali.abplive.com/live-tv","kind":"live","source":"ABP Network official live TV page"},
+{"name":"ABP Asmita","group":"India · Gujarati News","url":"","externalUrl":"https://bengali.abplive.com/live-tv","kind":"live","source":"ABP Network official live TV page"},
+{"name":"India Today Live","group":"India · News","url":"","externalUrl":"https://www.indiatoday.in/livetv","kind":"live","source":"India Today official live TV page"},
 ];
 const PAGE_LABEL={live:"Live TV",sports:"Sports",movies:"Movies",series:"Series",mylist:"My List"};
 function channelKey(ch){return ch.url||ch.externalUrl||ch.name;}

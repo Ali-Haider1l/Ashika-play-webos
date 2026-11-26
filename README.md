@@ -2,7 +2,7 @@
 
 A standalone LG webOS streaming and playlist entertainment app with a premium, Toffee-inspired dark interface and warm orange accent styling. Independently branded and developed.
 
-## Version 1.3.2
+## Version 1.3.3
 
 - Refreshed premium streaming UI, responsive navigation and orange accent theme
 - Improved hero presentation and content shelves for Live TV, Sports, Movies, Series and My List
@@ -14,6 +14,8 @@ A standalone LG webOS streaming and playlist entertainment app with a premium, T
 - Full-screen playback through the native webOS HTML video stack with clearer playback errors
 - LG remote directional navigation and Back/Escape support
 - Local persistence for playlist, favorites and guide
+- Added official international live news channels: Al Jazeera English, Sky News, Euronews, CNA, TRT World, CBS News 24/7, ABC News Australia, DW News and France 24 English
+- Fixed favorites so external-link channels can be saved individually
 - Updated webOS app metadata and package version
 
 ## Build and install
@@ -21,7 +23,7 @@ A standalone LG webOS streaming and playlist entertainment app with a premium, T
 ```sh
 npm install -g @webosose/ares-cli
 ares-package .
-ares-install --device ashikatv ./com.ashika.play.webos_1.3.2_all.ipk
+ares-install --device ashikatv ./com.ashika.play.webos_1.3.3_all.ipk
 ares-launch --device ashikatv com.ashika.play.webos
 ```
 
@@ -40,4 +42,4 @@ After packaging, install on the target LG TV and test remote focus, Back behavio
 
 ## Official free live channels
 
-Ashika Play includes quick links to Bangladesh Television's public live portal for BTV, BTV News, BTV Chattogram, Sangsad Television, DBC News, Somoy TV, Star News, and RTV. These open the broadcaster's official player; they are not copied or re-hosted stream URLs. Availability and playback are controlled by the broadcaster.
+Ashika Play includes public links to Bangladesh Television's portal (BTV, BTV News, BTV Chattogram and Sangsad Television), plus DBC News, Somoy TV, Star News and RTV. The International Free-to-Watch group adds Al Jazeera English, Sky News, Euronews, CNA, TRT World, CBS News 24/7, ABC News Australia, DW News and France 24 English. These links open broadcaster-owned live pages or verified broadcaster YouTube channels; they are not copied or re-hosted stream URLs. Availability, regional restrictions and playback are controlled by each broadcaster.

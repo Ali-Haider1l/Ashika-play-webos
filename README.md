@@ -2,7 +2,7 @@
 
 A standalone LG webOS streaming and playlist entertainment app with a premium, Toffee-inspired dark interface and warm orange accent styling. Independently branded and developed.
 
-## Version 1.3.5
+## Version 1.3.6
 
 - Refreshed premium streaming UI, responsive navigation and orange accent theme
 - Improved hero presentation and content shelves for Live TV, Sports, Movies, Series and My List
@@ -19,6 +19,7 @@ A standalone LG webOS streaming and playlist entertainment app with a premium, T
 - Added 20 direct HLS channel entries from the Mrgify BDIX playlist, covering Bangladeshi, Indian Bangla, sports, kids, music and international free-TV categories
 - Excluded temporary tokenized entries and Toffee-hosted/premium playlist URLs; stream availability can change and still requires playback testing on the target TV
 - Fixed favorites so external-link channels can be saved individually
+- Added ABP Ananda, ABP Majha, ABP Asmita and India Today using their official live TV pages (no third-party restream URLs)
 - Updated webOS app metadata and package version
 
 ## Build and install

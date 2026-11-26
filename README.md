@@ -1,37 +1,38 @@
 # Ashika Play — LG webOS
 
-A standalone LG webOS entertainment app with an OTT-style discovery interface. This repository is independent from Ashika Live TV.
+A standalone LG webOS streaming and playlist entertainment app with a premium, Toffee-inspired dark interface and warm orange accent styling. Independently branded and developed.
 
-## Version 1.2.1
+## Version 1.3.0
 
-Bug-fix release: correct home-shelf channel selection, improve native playback error reporting, add LG remote directional/Back-key focus handling, and generate the required PNG app icon during CI packaging.
-
-## Version 1.2.0
-- OTT-style home screen with Live TV, Sports, Movies, Series and My List shelves
+- Refreshed premium streaming UI, responsive navigation and orange accent theme
+- Improved hero presentation and content shelves for Live TV, Sports, Movies, Series and My List
+- Horizontal poster rails with category-specific artwork treatments
+- Search, category filtering, favorites and channel details
 - M3U/M3U8 playlist import by URL or local file
 - M3U metadata parsing: channel name, group, logo and EPG ID
 - Optional XMLTV EPG import with current/next programme display
-- Search, category filtering, channel details and favorites
-- Full-screen playback through the native webOS HTML video stack
-- TV remote keyboard focus and Back/Escape support
+- Full-screen playback through the native webOS HTML video stack with clearer playback errors
+- LG remote directional navigation and Back/Escape support
 - Local persistence for playlist, favorites and guide
+- Updated webOS app metadata and package version
 
 ## Build and install
+
 ```sh
 npm install -g @webosose/ares-cli
 ares-package .
-ares-install --device ashikatv ./com.ashika.play.webos_1.2.0_all.ipk
+ares-install --device ashikatv ./com.ashika.play.webos_1.3.0_all.ipk
 ares-launch --device ashikatv com.ashika.play.webos
 ```
 
-GitHub Actions packages an IPK on pushes to main. Download the artifact from the Actions run.
+GitHub Actions may package an IPK when its workflow is configured for the repository. Download the generated artifact from the relevant Actions run.
 
 ## Provider, rights and playback
-This is an independently branded OTT-style app, not Toffee's official client. It does not use Toffee proprietary source code, private APIs, catalog assets, credentials, paid streams or DRM keys. Official Toffee sign-in, subscription catalog and protected channels require authorization and integration supplied by the provider. No paywall or DRM is bypassed.
+
+Ashika Play is an independently branded app, not Toffee's official client. It does not use Toffee proprietary source code, private APIs, catalog assets, credentials, paid streams or DRM keys. Official Toffee sign-in, subscription catalog and protected channels require provider-authorized integration and credentials. No paywall or DRM is bypassed.
 
 Use only playlists and streams you are authorized to access. Playlist and XMLTV servers must allow CORS requests from the TV app. Playback depends on LG webOS firmware, stream protocol, codecs, DRM and provider authentication. The HTML video element cannot guarantee support for every HLS/DASH variant.
 
-## Known next steps
-- Test playlist formats and remote focus on the physical TV.
-- Add provider-approved catalog/API integration if access credentials and documentation are supplied.
-- Validate actual EPG timezone and stream playback against the target TV.
+## Validation
+
+After packaging, install on the target LG TV and test remote focus, Back behavior, playlist loading, EPG timezone, and actual stream playback. A successful GitHub commit does not by itself confirm a successful IPK build or TV playback.

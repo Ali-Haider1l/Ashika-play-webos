@@ -15,6 +15,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: Validate application files
+        run: |
+          node --check js/app.js
+          node -e "JSON.parse(require('fs').readFileSync('appinfo.json', 'utf8'))"
+          test -s index.html
+          test -s css/app.css
       - name: Install webOS CLI
         run: npm install --global @webosose/ares-cli
       - name: Package app
@@ -22,6 +28,6 @@ jobs:
       - name: Upload IPK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ashika-play-webos-ipk
+          name: ashika-play-webos-v1.2.0
           path: '*.ipk'
           if-no-files-found: error

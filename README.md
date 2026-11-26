@@ -2,6 +2,10 @@
 
 A standalone LG webOS entertainment app with an OTT-style discovery interface. This repository is independent from Ashika Live TV.
 
+## Version 1.2.1
+
+Bug-fix release: correct home-shelf channel selection, improve native playback error reporting, add LG remote directional/Back-key focus handling, and generate the required PNG app icon during CI packaging.
+
 ## Version 1.2.0
 - OTT-style home screen with Live TV, Sports, Movies, Series and My List shelves
 - M3U/M3U8 playlist import by URL or local file

@@ -1,30 +1,14 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<meta name="theme-color" content="#100d20"><title>Ashika Play</title><link rel="stylesheet" href="css/app.css">
-</head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta name="theme-color" content="#100d20"><title>Ashika Play</title><link rel="stylesheet" href="css/app.css"></head>
 <body>
-<header class="header">
- <div class="brand"><span class="brand-icon">A</span><span>ashika<span class="brand-accent">play</span></span></div>
- <nav id="nav" aria-label="Main navigation">
-  <button class="nav active" data-page="home">Home</button><button class="nav" data-page="live">Live TV</button><button class="nav" data-page="sports">Sports</button><button class="nav" data-page="drama">Drama</button><button class="nav" data-page="movies">Movies</button><button class="nav" data-page="series">Web Series</button><button class="nav" data-page="mylist">My List</button>
- </nav>
- <div class="header-actions"><button id="searchToggle" class="icon-btn" aria-label="Search">⌕</button><button id="settings" class="icon-btn" aria-label="Settings">⚙</button></div>
-</header>
-<main id="main">
- <section id="hero" class="hero">
-  <div class="hero-copy"><div class="eyebrow">ASHIKA PLAY ORIGINAL EXPERIENCE</div><h1 id="heroTitle">Entertainment<br><span>for everyone.</span></h1><p id="heroText">Live TV, sports, Bangla dramas, movies and web series — all on your TV.</p><div class="hero-actions"><button id="heroExplore" class="btn btn-primary">▶ Explore now</button><button id="heroPlaylist" class="btn btn-glass">＋ Add playlist</button></div></div>
-  <div class="hero-art"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-play">▶</div><div class="art-caption">YOUR BIG SCREEN<br><b>ENTERTAINMENT HUB</b></div></div>
-  <div class="hero-dots"><i class="selected"></i><i></i><i></i></div>
- </section>
- <section id="searchPanel" class="search-panel hidden"><input id="search" type="search" placeholder="Search channels, movies, dramas..." autocomplete="off"><button id="clearSearch" class="btn btn-glass">Clear</button></section>
- <section id="content" class="content"></section>
- <section id="empty" class="empty hidden"><div class="empty-icon">＋</div><h2>Your playlist is waiting</h2><p>Add an M3U playlist to bring your own channels into Ashika Play.</p><button id="addEmpty" class="btn btn-primary">Add M3U playlist</button></section>
-</main>
-<div id="settingsModal" class="overlay hidden"><div class="modal"><button class="close" id="closeSettings">✕</button><div class="eyebrow">ASHIKA PLAY</div><h2>Settings & playlist</h2><p class="muted">Import an M3U playlist you are authorized to use.</p><label for="playlist">Playlist URL</label><input id="playlist" placeholder="https://example.com/playlist.m3u"><div class="modal-actions"><button id="load" class="btn btn-primary">Load playlist</button><button id="clear" class="btn btn-glass">Remove playlist</button></div><p id="status" class="note">Playlist hosts must allow browser requests (CORS). Provider DRM, authentication and stream compatibility are not bypassed.</p></div></div>
-<div id="detailModal" class="overlay hidden"><div class="modal detail-modal"><button class="close" id="closeDetail">✕</button><div id="detailArtwork" class="detail-art">ASHIKA PLAY</div><div class="eyebrow" id="detailType">FEATURED</div><h2 id="detailTitle">Title</h2><p id="detailDescription" class="muted">Choose something to watch.</p><div class="modal-actions"><button id="detailPlay" class="btn btn-primary">▶ Watch now</button><button id="detailSave" class="btn btn-glass">＋ My List</button></div></div></div>
-<div id="player" class="player hidden"><video id="video" controls autoplay playsinline></video><div class="player-top"><button id="back" class="btn btn-glass">← Back</button><b id="nowPlaying">Now Playing</b></div><div id="playError" class="play-error hidden"></div></div>
-<div id="toast" class="toast hidden"></div>
-<script src="js/app.js"></script>
-</body></html>
+<header class="header"><div class="brand"><span class="brand-icon">A</span><span>ashika<span class="brand-accent">play</span></span></div>
+<nav id="nav" aria-label="Main navigation"><button class="nav active" data-page="home">Home</button><button class="nav" data-page="live">Live TV</button><button class="nav" data-page="sports">Sports</button><button class="nav" data-page="movies">Movies</button><button class="nav" data-page="series">Series</button><button class="nav" data-page="mylist">My List</button></nav>
+<div class="header-actions"><button id="searchToggle" class="icon-btn" aria-label="Search">⌕</button><button id="settings" class="icon-btn" aria-label="Settings">⚙</button></div></header>
+<main id="main"><section id="hero" class="hero"><div class="hero-copy"><div class="eyebrow">YOUR ENTERTAINMENT WORLD</div><h1 id="heroTitle">All your favorites.<br><span>One big screen.</span></h1><p id="heroText">Discover live channels, sports, movies and series with Ashika Play.</p><div class="hero-actions"><button id="heroExplore" class="btn btn-primary">▶ Explore Live TV</button><button id="heroPlaylist" class="btn btn-glass">＋ Add playlist</button></div></div><div class="hero-art"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-play">▶</div><div class="art-caption">ASHIKA PLAY<br><b>ENTERTAINMENT HUB</b></div></div><div class="hero-dots"><i class="selected"></i><i></i><i></i></div></section>
+<section id="searchPanel" class="search-panel hidden"><input id="search" type="search" placeholder="Search channels, movies, series..." autocomplete="off"><button id="clearSearch" class="btn btn-glass">Clear</button></section>
+<section id="filterPanel" class="filter-panel hidden"><label for="groupFilter">Category</label><select id="groupFilter"><option value="">All categories</option></select><span id="resultCount" class="muted"></span></section>
+<section id="content" class="content"></section><section id="empty" class="empty hidden"><div class="empty-icon">＋</div><h2>Your playlist is waiting</h2><p>Import an M3U playlist to bring your channels into Ashika Play.</p><button id="addEmpty" class="btn btn-primary">Add playlist</button></section></main>
+<div id="settingsModal" class="overlay hidden"><div class="modal"><button class="close" id="closeSettings">✕</button><div class="eyebrow">PERSONALIZE YOUR EXPERIENCE</div><h2>Playlist settings</h2><p class="muted">Add an M3U playlist URL or choose a playlist file from your device.</p><label for="playlist">M3U playlist URL</label><input id="playlist" placeholder="https://example.com/playlist.m3u"><div class="modal-actions"><button id="load" class="btn btn-primary">Load URL</button><label class="file-button btn btn-glass" for="playlistFile">Choose M3U file</label><input id="playlistFile" type="file" accept=".m3u,.m3u8,text/plain" class="file-input"></div><div class="divider"></div><label for="epgUrl">Optional XMLTV EPG URL</label><input id="epgUrl" placeholder="https://example.com/guide.xml"><button id="saveEpg" class="btn btn-glass">Save TV guide URL</button><p id="status" class="note">Playlist and EPG servers must allow CORS requests. Provider login, DRM and paid access are not bypassed.</p><button id="clear" class="btn btn-danger">Remove saved playlist and guide</button></div></div>
+<div id="detailModal" class="overlay hidden"><div class="modal detail-modal"><button class="close" id="closeDetail">✕</button><div id="detailArtwork" class="detail-art">ASHIKA PLAY</div><div class="eyebrow" id="detailType">CHANNEL</div><h2 id="detailTitle">Title</h2><p id="detailDescription" class="muted">Choose something to watch.</p><p id="detailSchedule" class="schedule"></p><div class="modal-actions"><button id="detailPlay" class="btn btn-primary">▶ Watch now</button><button id="detailSave" class="btn btn-glass">＋ My List</button></div></div></div>
+<div id="player" class="player hidden"><video id="video" controls autoplay playsinline></video><div class="player-top"><button id="back" class="btn btn-glass">← Back</button><b id="nowPlaying">Now Playing</b></div><div id="playError" class="play-error hidden"></div></div><div id="toast" class="toast hidden"></div>
+<script src="js/app.js"></script></body></html>

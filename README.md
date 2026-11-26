@@ -2,7 +2,7 @@
 
 A standalone LG webOS streaming and playlist entertainment app with a premium, Toffee-inspired dark interface and warm orange accent styling. Independently branded and developed.
 
-## Version 1.3.6
+## Version 1.4.0
 
 - Refreshed premium streaming UI, responsive navigation and orange accent theme
 - Improved hero presentation and content shelves for Live TV, Sports, Movies, Series and My List
@@ -47,3 +47,12 @@ After packaging, install on the target LG TV and test remote focus, Back behavio
 ## Official free live channels
 
 Ashika Play includes public links to Bangladesh Television's portal (BTV, BTV News, BTV Chattogram and Sangsad Television), plus DBC News, Somoy TV, Star News and RTV. The International group now also links Bloomberg Originals, CBC News, Citizen TV Kenya, Global News, KBS News, KBS World, LiveNOW from FOX, NASA TV, NDTV 24x7, WION, eNCA, ABC News Live, NHK World-Japan, CGTN, Canal 24 Horas, TV Brasil and UN Web TV. These links open broadcaster-owned live pages or verified broadcaster YouTube channels; they are not copied or re-hosted stream URLs. Availability, regional restrictions and playback are controlled by each broadcaster.
+
+
+## Version 1.4.0
+- Updated the TV-first streaming interface with Live TV, Sports, Movies, Series, Kids, Music, Recently Watched and My List sections
+- Added persistent watch history and resume position for direct playlist video streams
+- Fixed favorites for channels that open official broadcaster pages
+- Clearing a custom playlist now keeps the built-in official free-channel directory
+- M3U and XMLTV EPG imports remain supported; Movies/Series/Kids/Music sections are populated by matching categories in your own authorized playlist
+- This is an independently branded app with a Toffee-inspired streaming layout, not the Toffee service or its proprietary catalogue; paid/DRM-protected streams are not included

@@ -1,0 +1,10 @@
+{
+  "id": "com.ashika.play.webos",
+  "version": "1.0.0",
+  "vendor": "Ashika",
+  "type": "web",
+  "main": "index.html",
+  "title": "Ashika Play",
+  "resolution": "1920x1080",
+  "requiredMemory": 128
+}

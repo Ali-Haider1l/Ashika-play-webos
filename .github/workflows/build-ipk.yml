@@ -30,7 +30,7 @@ jobs:
           convert icon.svg -resize 80x80 icon.png
           test -s icon.png
       - name: Package app
-        run: ares-package .
+        run: ares-package --no-minify .
       - name: Upload IPK artifact
         uses: actions/upload-artifact@v4
         with:

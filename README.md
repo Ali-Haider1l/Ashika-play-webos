@@ -16,8 +16,8 @@ A standalone LG webOS streaming and playlist entertainment app with a premium, T
 - Local persistence for playlist, favorites and guide
 - Added official international live news channels: Al Jazeera English, Sky News, Euronews, CNA, TRT World, CBS News 24/7, ABC News Australia, DW News and France 24 English
 - Fixed favorites so external-link channels can be saved individually
-- Added 20 direct HLS channel entries from the Mrgify BDIX playlist, covering Bangladeshi, Indian Bangla, sports, kids, music and international free-TV categories
-- Excluded temporary tokenized entries and Toffee-hosted/premium playlist URLs; stream availability can change and still requires playback testing on the target TV
+- Removed unverified direct-stream entries rather than presenting dead or untested links as working
+- Added official ABP Network live TV access for ABP Ananda, ABP Majha and ABP Asmita, plus India Today Live TV
 - Fixed favorites so external-link channels can be saved individually
 - Added ABP Ananda, ABP Majha, ABP Asmita and India Today using their official live TV pages (no third-party restream URLs)
 - Updated webOS app metadata and package version

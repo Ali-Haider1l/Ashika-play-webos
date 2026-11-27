@@ -71,11 +71,62 @@ async function importText(text,url){const channels=parseM3U(text);if(!channels.l
 const FREEHUNTER_HDTV_URL="https://raw.githubusercontent.com/ahan443/FreeHunter/refs/heads/main/HDTV.m3u";
 async function loadFreeHunterHDTV(){ $("playlist").value=FREEHUNTER_HDTV_URL; await loadURL(); }
 async function loadURL(){const url=$("playlist").value.trim();if(!/^https?:\/\//i.test(url)){$("status").textContent="Enter a valid HTTP or HTTPS playlist URL.";return}$("status").textContent="Downloading playlist…";try{const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);await importText(await r.text(),url)}catch(e){$("status").textContent="Playlist could not be loaded: "+e.message+". Check the URL and CORS policy."}}
+const SERVER_LOOKUP_BASE="https://dokoplay.xyz/server_lookup.php";
+function collectServerStreams(payload){
+ const found=[];
+ const seen=new Set();
+ const urlKeys=new Set(["stream_url","play_url","video_url","m3u8","hls","stream","source_url"]);
+ const walk=(value,context={})=>{
+  if(!value)return;
+  if(Array.isArray(value)){value.forEach(v=>walk(v,context));return}
+  if(typeof value!=="object")return;
+  const name=value.name||value.channel_name||value.title||value.channel||"Premium channel";
+  const group=value.group||value.category||"Premium";
+  for(const [key,val] of Object.entries(value)){
+   if(typeof val==="string"&&/^https?:\\/\\//i.test(val)){
+    const k=key.toLowerCase();
+    const looksPlayable=urlKeys.has(k)||/\\.(m3u8?|mpd|mp4)(?:[?#]|$)/i.test(val);
+    if(looksPlayable&&!seen.has(val)){seen.add(val);found.push({name:String(name),group:String(group),url:val,kind:"live",source:"DokoPlay server lookup"})}
+   }else if(val&&typeof val==="object")walk(val,{name,group});
+  }
+ };
+ walk(payload);
+ return found;
+}
+async function loadServerLookup(){
+ const id=($("serverChannelId")?.value||"premium").trim();
+ if(!id){$("serverStatus").textContent="Enter a channel ID.";return}
+ const url=SERVER_LOOKUP_BASE+"?channel_id="+encodeURIComponent(id);
+ $("serverStatus").textContent="Contacting DokoPlay lookup…";
+ try{
+  const response=await fetch(url,{cache:"no-store"});
+  if(!response.ok)throw Error("HTTP "+response.status);
+  const body=await response.text();
+  let channels=[];
+  if(/^\\s*#EXTM3U/m.test(body))channels=parseM3U(body);
+  else{
+   let data;
+   try{data=JSON.parse(body)}catch(e){throw Error("Server returned neither JSON nor M3U data")}
+   channels=collectServerStreams(data);
+  }
+  if(!channels.length)throw Error("The server responded, but no playable stream URLs were present");
+  const saved=JSON.parse(localStorage.getItem(STORE)||"null");
+  const custom=Array.isArray(saved?.channels)?saved.channels:[];
+  const merged=[...custom,...channels.filter(c=>!custom.some(x=>x.url===c.url))];
+  state.channels=[...FREE_CHANNELS,...merged.filter(c=>!FREE_CHANNELS.some(f=>f.name.toLowerCase()===c.name.toLowerCase()))];
+  localStorage.setItem(STORE,JSON.stringify({url:saved?.url||"",channels:merged}));
+  updateGroups();render();
+  $("serverStatus").textContent="Added "+channels.length+" stream(s) returned by the server.";
+  toast("Server lookup added "+channels.length+" channels");
+ }catch(error){
+  $("serverStatus").textContent="Lookup failed: "+error.message+". The endpoint may be offline or block TV-app CORS; no stream links were fabricated.";
+ }
+}
 async function loadEPG(){const url=$("epgUrl").value.trim();if(!url){toast("Enter an XMLTV URL first.");return}localStorage.setItem(EPG+"url",url);$("status").textContent="Loading TV guide…";try{const r=await fetch(url,{cache:"no-store"});if(!r.ok)throw Error("HTTP "+r.status);state.epg=parseXMLTV(await r.text());localStorage.setItem(EPG,JSON.stringify(state.epg));$("status").textContent="Loaded "+state.epg.length+" programme entries.";render();toast("TV guide updated")}catch(e){$("status").textContent="EPG load failed: "+e.message+". Check URL and CORS."}}
 function openSettings(){$("settingsModal").classList.remove("hidden")}
 try{const saved=JSON.parse(localStorage.getItem(STORE)||"null");if(saved&&Array.isArray(saved.channels)){state.channels=[...FREE_CHANNELS,...saved.channels.filter(c=>!FREE_CHANNELS.some(f=>f.name.toLowerCase()===c.name.toLowerCase()))];$("playlist").value=saved.url||""}else{state.channels=[...FREE_CHANNELS]}state.favorites=new Set(JSON.parse(localStorage.getItem(FAV)||"[]"));const watch=JSON.parse(localStorage.getItem(WATCH)||"null");if(watch){state.recent=Array.isArray(watch.recent)?watch.recent:[];state.progress=watch.progress||{}}state.epg=JSON.parse(localStorage.getItem(EPG)||"[]");$("epgUrl").value=localStorage.getItem(EPG+"url")||""}catch(e){state.channels=[];state.epg=[]}
 document.querySelectorAll(".nav").forEach(b=>b.addEventListener("click",()=>goPage(b.dataset.page)));
-$("settings").onclick=$("heroPlaylist").onclick=$("addEmpty").onclick=openSettings;$("closeSettings").onclick=()=>$("settingsModal").classList.add("hidden");$("load").onclick=loadURL;$("loadHdtv").onclick=loadFreeHunterHDTV;$("saveEpg").onclick=loadEPG;
+$("settings").onclick=$("heroPlaylist").onclick=$("addEmpty").onclick=openSettings;$("closeSettings").onclick=()=>$("settingsModal").classList.add("hidden");$("load").onclick=loadURL;$("loadHdtv").onclick=loadFreeHunterHDTV;$("saveEpg").onclick=loadEPG;$("lookupServers").onclick=loadServerLookup;
 $("playlistFile").addEventListener("change",async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;try{await importText(await f.text(),f.name)}catch(err){$("status").textContent=err.message}});
 $("clear").onclick=()=>{localStorage.removeItem(STORE);localStorage.removeItem(EPG);localStorage.removeItem(EPG+"url");state.channels=[...FREE_CHANNELS];state.epg=[];$("playlist").value="";$("epgUrl").value="";updateGroups();render();$("status").textContent="Custom playlist and guide removed. Official free channels are still available.";};
 $("searchToggle").onclick=()=>{$("searchPanel").classList.toggle("hidden");$("filterPanel").classList.toggle("hidden");if(!$("searchPanel").classList.contains("hidden"))$("search").focus()};

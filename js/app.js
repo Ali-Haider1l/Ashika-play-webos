@@ -83,9 +83,9 @@ function collectServerStreams(payload){
   const name=value.name||value.channel_name||value.title||value.channel||"Premium channel";
   const group=value.group||value.category||"Premium";
   for(const [key,val] of Object.entries(value)){
-   if(typeof val==="string"&&/^https?:\\/\\//i.test(val)){
+   if(typeof val==="string"&&/^https?:\/\//i.test(val)){
     const k=key.toLowerCase();
-    const looksPlayable=urlKeys.has(k)||/\\.(m3u8?|mpd|mp4)(?:[?#]|$)/i.test(val);
+    const looksPlayable=urlKeys.has(k)||/\.(m3u8?|mpd|mp4)(?:[?#]|$)/i.test(val);
     if(looksPlayable&&!seen.has(val)){seen.add(val);found.push({name:String(name),group:String(group),url:val,kind:"live",source:"DokoPlay server lookup"})}
    }else if(val&&typeof val==="object")walk(val,{name,group});
   }
@@ -103,7 +103,7 @@ async function loadServerLookup(){
   if(!response.ok)throw Error("HTTP "+response.status);
   const body=await response.text();
   let channels=[];
-  if(/^\\s*#EXTM3U/m.test(body))channels=parseM3U(body);
+  if(/^\s*#EXTM3U/m.test(body))channels=parseM3U(body);
   else{
    let data;
    try{data=JSON.parse(body)}catch(e){throw Error("Server returned neither JSON nor M3U data")}
